@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Stack(
                           alignment: Alignment.bottomRight,
                           children:[ Image(
-                              image: AssetImage('assets/images/Logo.png')),
+                              image: AssetImage('assets/images/logo.png')),
                             IconButton(onPressed: (){}, icon:Icon( Icons.camera_alt_outlined))
                        ] ))),
                 Row(
@@ -75,27 +75,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 15,
                 ),
                 defaultFormField(
-                    hitText: 'Name',
+                    hintText: 'Name',
                     type: TextInputType.text,
                     controller: nameController),
                 defaultFormField(
-                    hitText: 'Email',
+                    hintText: 'Email',
                     type: TextInputType.text,
                     controller: emailController),
                 defaultFormField(
-                    hitText: 'Mobile No',
+                    hintText: 'Mobile No',
                     type: TextInputType.text,
                     controller: phoneController),
                 defaultFormField(
-                    hitText: 'Address',
+                    hintText: 'Address',
                     type: TextInputType.text,
                     controller: addressController),
                 defaultFormField(
-                    hitText: 'Password',
+                    hintText: 'Password',
                     type: TextInputType.text,
                     controller: passwordController),
                 defaultFormField(
-                    hitText: 'Confirm password',
+                    hintText: 'Confirm password',
                     type: TextInputType.text,
                     controller: confiemPasswordController),
                 orangeButton(text: 'Save',function:(){},),

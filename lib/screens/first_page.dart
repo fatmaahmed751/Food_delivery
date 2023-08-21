@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/screens/app_rout.dart';
+import 'package:restaurant_app/screens/login_screen.dart';
+import 'package:restaurant_app/screens/register_screen.dart';
+import 'package:restaurant_app/screens/splash_screen.dart';
+
 
 
 class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key}) : super(key: key);
 
   @override
   State<FirstPage> createState() => _FirstPageState();
@@ -11,6 +15,10 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   @override
+  void initState() {
+    super.initState();
+  }
+    @override
   Widget build(BuildContext context) {
     return SafeArea(
       top: false,
@@ -22,7 +30,7 @@ class _FirstPageState extends State<FirstPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             defaultContainer(),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 15,),
             mainText(),
             secondText(),
             const SizedBox(height: 3,),
@@ -30,8 +38,9 @@ class _FirstPageState extends State<FirstPage> {
               child: orangeButton(
                 text: 'Login',
                 function:(){
-                //  Navigator.pushReplacementNamed(context, AppRouts.loginScreen);
-                 // Navigator.pushReplacementNamed(context,AppRouts.loginScreen);
+                  Navigator.push(context, MaterialPageRoute(builder:(_)=> LoginScreen()));
+                 //Navigator.push(context, AppRouts.loginScreen as Route<Object?>);
+                  //Navigator.pushReplacementNamed(context,AppRouts.loginScreen);
                 },
               ),
             ),
@@ -41,7 +50,7 @@ class _FirstPageState extends State<FirstPage> {
                 textColor: Colors.deepOrangeAccent,
                 color: Colors.transparent,
                 function: (){
-                 // Navigator.push(context, MaterialPageRoute(builder:(context)=>const SignUpScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder:(_)=> SignUpScreen()));
                 }
             ),
             ),
@@ -52,3 +61,6 @@ class _FirstPageState extends State<FirstPage> {
     );
   }
 }
+
+
+

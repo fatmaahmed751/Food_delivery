@@ -35,7 +35,7 @@ class ResetPassword extends StatelessWidget {
             defaultFormField(
                 type:TextInputType.text,
                 controller:emailController,
-                hitText: 'Your email'),
+                hintText: 'Your email'),
             SizedBox(height: 10,),
             Center(
               child: orangeButton(

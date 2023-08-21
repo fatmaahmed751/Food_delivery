@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_app/components/app_colors.dart';
 
 Widget orangeButton({
   required String text,
   required Function function,
 }) =>
-    InkWell(
-      onTap:(){ function;},
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        padding: const EdgeInsets.all(8.0),
-        width: 307,
-        height: 56,
-        decoration: BoxDecoration(
-          color: Colors.deepOrange,
-          // const Color.fromRGBO(252,96 ,17 ,80 ) ,
-          borderRadius: BorderRadius.circular(100.0),
-        ),
-        clipBehavior: Clip.hardEdge,
-        child: TextButton(
-          onPressed: () {},
-          child: Text(
-            text,
-            style: TextStyle(
-                color: Colors.white, fontSize: 17, fontWeight: FontWeight.w400),
-          ),
+    Container(
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      padding: const EdgeInsets.all(8.0),
+      width: 307,
+      height: 56,
+      decoration: BoxDecoration(
+        color:AppColors.kPrimaryColor,
+        // const Color.fromRGBO(252,96 ,17 ,80 ) ,
+        borderRadius: BorderRadius.circular(100.0),
+      ),
+      clipBehavior: Clip.hardEdge,
+      child: TextButton(
+        onPressed: (){function();},
+        child: Text(
+          text,
+          style: TextStyle(
+              color: Colors.white, fontSize: 17, fontWeight: FontWeight.w400),
         ),
       ),
     );
@@ -35,11 +33,13 @@ Widget funText({
   required FontWeight fontWeight,
 }) =>
     TextButton(
-      onPressed: () {},
+      onPressed: () {
+        function();
+      },
       child: Text(
         text,
         style: TextStyle(
-            color: Colors.deepOrangeAccent,
+            color: AppColors.kPrimaryColor,
             fontSize: 17,
             fontWeight: FontWeight.w600),
       ),
@@ -60,13 +60,12 @@ Widget defaultButton({
           //  const Color.fromRGBO(252,96 ,17 ,80 ) ,
           border: Border.all(
             width: 1.0,
-            color:
-            const Color.fromRGBO(252, 96, 17, 80),
+            color:color
           ),
           borderRadius: BorderRadius.circular(25)),
       clipBehavior: Clip.hardEdge,
       child: TextButton(
-        onPressed: function(),
+        onPressed:(){function();} ,
         child: Text(
           text,
           style: TextStyle(color: textColor, fontSize: 15),
@@ -80,7 +79,7 @@ Widget mainText() => Column(
   children: [
     Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children:  [
         Text(
           'Meal',
           style: TextStyle(
@@ -88,11 +87,11 @@ Widget mainText() => Column(
             // wordSpacing: 10.0,
               fontWeight: FontWeight.w900,
               fontSize: 35,
-              color: Colors.deepOrangeAccent,
+              color: AppColors.kPrimaryColor,
               fontFamily: "Cabin"),
         ),
         SizedBox(
-          width: 9,
+          width:1,
         ),
         Text(
           'Monkey',
@@ -121,63 +120,28 @@ Widget mainText() => Column(
   ],
 );
 
-Widget defaultContainer() => Container(
-  width: 375,
-  height: 430,
-  child: Stack(alignment: Alignment.bottomCenter,
-    children: [
-      Align(
-        alignment: Alignment.topCenter,
-        child: Card(
-          child:Container(
-            width: 375,
-            height: 382,
-            decoration:  BoxDecoration(
-              color: Colors.deepOrangeAccent,
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 20.0,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      Container(
-        padding: EdgeInsets.all(2),
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.9),
-          borderRadius: BorderRadius.circular(60),
-          boxShadow: const [
-            BoxShadow(
-              blurRadius: 15.0,
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(1.0),
-          child: CircleAvatar(
-            radius: 60,
-            backgroundColor: Colors.transparent,
-            //  backgroundColor: Colors.white.withOpacity(0.9),
-            child: CircleAvatar(
-              radius: 60.0,
-              backgroundColor: Colors.white38.withOpacity(0.9),
-              child: CircleAvatar(
-                  radius: 60,
-                  backgroundColor: Colors.transparent,
-                  backgroundImage:
-                  AssetImage("assets/images/download.png")),
-            ),
-          ),
-        ),
-      ),
+Widget defaultContainer() => Stack(
+  alignment: Alignment.bottomCenter,
+  children: [
+        Container(
+          height: 423,
+            width: 380,
+            child: Image.asset('assets/images/login_background.png')),
+Container(
+  height:140 ,
+    width:130 ,
+    child: Image.asset('assets/images/monkey.png')),
 
 
-    ],
-  ),
 
+  ],
 );
+
+
+
+
+
+
 
 Widget secondText() => Container(
   padding: const EdgeInsets.all(8.0),
@@ -210,10 +174,12 @@ Widget defaultDivider() => Container(
 );
 
 Widget defaultFormField({
-  required String hitText,
+
+  required String hintText,
   required TextEditingController controller,
   required TextInputType type,
   String? Function(String?)? validator,
+ void Function(String)? onChanged,
 }) =>
     Container(
       width: 300,
@@ -223,13 +189,14 @@ Widget defaultFormField({
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200), color: Colors.blueGrey[50]),
       child: TextFormField(
+        onChanged: onChanged,
         textAlign: TextAlign.justify,
         validator: validator,
         keyboardType: type,
         controller: controller,
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: hitText,
+          hintText: hintText,
           contentPadding: EdgeInsets.only(left: 25),
           hintStyle: TextStyle(
             decorationStyle: TextDecorationStyle.double,

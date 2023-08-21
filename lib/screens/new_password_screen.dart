@@ -43,12 +43,12 @@ class NewPasswordScreen extends StatelessWidget {
               defaultFormField(
                   type:TextInputType.text,
                   controller:passwordController,
-                  hitText: 'New Password'),
+                  hintText: 'New Password'),
               SizedBox(height: 10,),
               defaultFormField(
                   type:TextInputType.text,
                   controller:passwordController,
-                  hitText: 'Confirm Password'),
+                  hintText: 'Confirm Password'),
               SizedBox(height: 10,),
               orangeButton(text: 'Next',function:(){}, ),
               defaultDivider(),
