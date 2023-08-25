@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/components.dart';
 import 'package:restaurant_app/screens/app_rout.dart';
 import 'package:restaurant_app/screens/login_screen.dart';
 import 'package:restaurant_app/screens/register_screen.dart';
 import 'package:restaurant_app/screens/splash_screen.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 
 
 

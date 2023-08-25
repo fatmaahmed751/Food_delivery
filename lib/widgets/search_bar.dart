@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:restaurant_app/components/app_fonts.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/app_fonts.dart';
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class SearchBarWidget extends StatelessWidget {
             //controller: textEditingController,
             decoration: InputDecoration(
               hintText: 'search food',
-              hintStyle: TextStyle(
+              hintStyle:const TextStyle(
                   fontSize: AppFontSize.s14
                   ,fontWeight: AppFontWeight.regular,
                  // color: AppColors.grey,
@@ -25,10 +26,10 @@ class SearchBarWidget extends StatelessWidget {
               ),
               filled: true,
               fillColor: Colors.grey[200],
-               prefixIcon: SvgPicture.asset(""
-                  // iconSearch,
-                  // color: AppColors.grey,
-                 //  fit: BoxFit.scaleDown
+               prefixIcon: SvgPicture.asset(
+                  'assets/images/icons/search.svg',
+                  color: AppColors.grey,
+                  fit: BoxFit.scaleDown
               ),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(50),

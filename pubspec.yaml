@@ -38,12 +38,13 @@ dependencies:
   dio: ^5.1.1
   equatable: ^2.0.5
   firebase_auth: ^4.7.3
+  bloc: ^8.1.2
+  flutter_screenutil: ^5.7.0
+  flutter_bloc: ^8.1.2
+  flutter_svg: ^2.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_bloc: ^8.1.2
-  flutter_screenutil: ^5.7.0
-  flutter_svg: ^2.0.5
   flutter_native_splash: ^2.2.19
   smooth_page_indicator: ^1.1.0
   firebase_core: ^2.15.0
@@ -71,6 +72,7 @@ flutter:
   assets:
       - assets/images/
       - assets/images/icons/
+      - assets/images/svg_images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

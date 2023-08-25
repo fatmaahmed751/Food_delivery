@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant_app/components/app_fonts.dart';
+import 'package:restaurant_app/shared/components/app_fonts.dart';
 import 'package:restaurant_app/widgets/custom_text.dart';
 
 class MenuCategoryListItem extends StatelessWidget {

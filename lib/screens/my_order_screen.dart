@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 import 'package:restaurant_app/widgets/custom_app_bar_two.dart';
 
 class MyOrderScreen extends StatelessWidget {

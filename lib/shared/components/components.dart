@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 
 Widget orangeButton({
   required String text,
@@ -180,30 +181,57 @@ Widget defaultFormField({
   required TextInputType type,
   String? Function(String?)? validator,
  void Function(String)? onChanged,
+  String? labelText,
+ required Widget prefixIcon,
+  Widget?suffixIcon,
+   bool obscureText = false,
+
+
+
 }) =>
     Container(
       width: 300,
-      height: 53,
+      height: 52,
       // padding: EdgeInsets.all(8),
       margin: EdgeInsets.all(15),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(200), color: Colors.blueGrey[50]),
+           borderRadius: BorderRadius.circular(200),
+      //  color: Colors.blueGrey[50]
+      ),
       child: TextFormField(
+obscureText: obscureText,
         onChanged: onChanged,
         textAlign: TextAlign.justify,
         validator: validator,
         keyboardType: type,
         controller: controller,
         decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: hintText,
-          contentPadding: EdgeInsets.only(left: 25),
-          hintStyle: TextStyle(
-            decorationStyle: TextDecorationStyle.double,
-            color: Colors.grey[400],
+          prefixIcon:prefixIcon ,
+          suffixIcon: suffixIcon,
+          fillColor: Colors.blueGrey[50] ,
+          filled: true,
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.deepOrangeAccent.withOpacity(1.0)),
+            borderRadius: BorderRadius.circular(101),
           ),
+      enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Colors.deepOrangeAccent.withOpacity(1.0)),
+                borderRadius: BorderRadius.circular(201),
+          ),
+         focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Colors.deepOrangeAccent.withOpacity(1.0)),
+            borderRadius: BorderRadius.circular(201),
+          ),
+          labelText: labelText,
+labelStyle: TextStyle(
+  color:Colors.grey[700],
+),
 
-          //fillColor: Colors.grey[300],
+          contentPadding: EdgeInsets.only(left: 25),
+
         ),
       ),
     );

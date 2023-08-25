@@ -3,7 +3,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restaurant_app/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 import 'package:restaurant_app/screens/app_rout.dart';
 import 'package:restaurant_app/screens/first_page.dart';
 

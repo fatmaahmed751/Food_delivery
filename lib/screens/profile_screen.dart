@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/controllers/app_bloc/cubit.dart';
+import 'package:restaurant_app/controllers/app_bloc/states.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 import 'package:restaurant_app/widgets/custom_app_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -18,6 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController addressController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confiemPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // return BlocConsumer<HomeCubit, HomeState>(
@@ -25,88 +28,126 @@ class _ProfileScreenState extends State<ProfileScreen> {
     //   builder: (context, state) {
     //     var cubit = HomeCubit.get(context);
     //     var bottomNavCurrentIndex = cubit.bottomNavCurrentIndex;
-        return Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const CustomAppBar(
+              title: 'Profile',
+            ),
+            Center(
+                child: CircleAvatar(
+                    radius: 50,
+                    child: Stack(alignment: Alignment.bottomRight, children: [
+                      Image(image: AssetImage('assets/images/logo.png')),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.camera_alt_outlined))
+                    ]))),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CustomAppBar(
-                  title: 'Profile',
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.edit_outlined,
+                      color: Colors.deepOrange,
+                    )),
+                const Text(
+                  'Edit Profile',
+                  style: TextStyle(
+                      color: Colors.deepOrange, fontWeight: FontWeight.w500),
                 ),
-                 Center(
-                    child: CircleAvatar(
-                        radius: 50,
-                        child: Stack(
-                          alignment: Alignment.bottomRight,
-                          children:[ Image(
-                              image: AssetImage('assets/images/logo.png')),
-                            IconButton(onPressed: (){}, icon:Icon( Icons.camera_alt_outlined))
-                       ] ))),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.edit_outlined,
-                          color: Colors.deepOrange,
-                        )),
-                    const Text(
-                      'Edit Profile',
-                      style: TextStyle(
-                          color: Colors.deepOrange,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
+              ],
+            ),
+            screenSubText(
+                text: 'Hi there Emilia!',
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xff4A4B4D)),
+            const SizedBox(
+              height: 10,
+            ),
+            screenSubText(
+                text: 'Sign out',
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
+                color: const Color(0xff7C7D7E)),
+            const SizedBox(
+              height: 15,
+            ),
+            defaultFormField(
+                prefixIcon: Icon(
+                  Icons.person,
+                  color: AppColors.kPrimaryColor,
                 ),
-                screenSubText(
-                    text: 'Hi there Emilia!',
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xff4A4B4D)),
-                const SizedBox(
-                  height: 10,
+                labelText: ('Name'),
+                hintText: 'Name',
+                type: TextInputType.text,
+                controller: nameController),
+            defaultFormField(
+                prefixIcon: Icon(
+                  Icons.email_outlined,
+                  color: AppColors.kPrimaryColor,
                 ),
-                screenSubText(
-                    text: 'Sign out',
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xff7C7D7E)),
-                const SizedBox(
-                  height: 15,
+                labelText: ('Email'),
+                hintText: 'Email',
+                type: TextInputType.text,
+                controller: emailController),
+            defaultFormField(
+                prefixIcon: Icon(
+                  Icons.phone_android_outlined,
+                  color: AppColors.kPrimaryColor,
                 ),
-                defaultFormField(
-                    hintText: 'Name',
-                    type: TextInputType.text,
-                    controller: nameController),
-                defaultFormField(
-                    hintText: 'Email',
-                    type: TextInputType.text,
-                    controller: emailController),
-                defaultFormField(
-                    hintText: 'Mobile No',
-                    type: TextInputType.text,
-                    controller: phoneController),
-                defaultFormField(
-                    hintText: 'Address',
-                    type: TextInputType.text,
-                    controller: addressController),
-                defaultFormField(
-                    hintText: 'Password',
-                    type: TextInputType.text,
-                    controller: passwordController),
-                defaultFormField(
-                    hintText: 'Confirm password',
-                    type: TextInputType.text,
-                    controller: confiemPasswordController),
-                orangeButton(text: 'Save',function:(){},),
-                /*IndexedStack(
+                labelText: ('Mobile'),
+                hintText: 'Mobile No',
+                type: TextInputType.text,
+                controller: phoneController),
+            defaultFormField(
+                prefixIcon: Icon(
+                  Icons.home,
+                  color: AppColors.kPrimaryColor,
+                ),
+                labelText: ('Address'),
+                hintText: 'Address',
+                type: TextInputType.text,
+                controller: addressController),
+            defaultFormField(
+                prefixIcon: Icon(
+                  Icons.lock_outline,
+                  color: AppColors.kPrimaryColor,
+                ),
+                labelText: ('Password'),
+                obscureText: true,
+                hintText: 'Password',
+                type: TextInputType.text,
+                controller: passwordController),
+            defaultFormField(
+                prefixIcon: Icon(
+                  Icons.lock_outline,
+                  color: AppColors.kPrimaryColor,
+                ),
+                labelText: ('Confirm password'),
+                obscureText: true,
+                hintText: 'Confirm password',
+                type: TextInputType.text,
+                controller: confiemPasswordController,
+                suffixIcon: Icon(
+                  Icons.visibility_off_outlined,
+                  color: AppColors.kPrimaryColor,
+                )),
+            orangeButton(
+              text: 'Save',
+              function: () {},
+            ),
+            /*IndexedStack(
           index: bottomNavCurrentIndex,
           children: cubit.bottomScreens,
       ),*/
-              ],
-            ),
-          ),
-          /* backgroundColor: AppColors.backgroundColor,
+          ],
+        ),
+      ),
+      /* backgroundColor: AppColors.backgroundColor,
         floatingActionButton: FloatingActionButton(
     backgroundColor: bottomNavCurrentIndex == 2
         ? AppColors.primaryColor
@@ -178,8 +219,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ],
     ),
         ),*/
-        );
-
-
+    );
   }
 }

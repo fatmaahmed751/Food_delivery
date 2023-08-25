@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 
 class NewPasswordScreen extends StatelessWidget {
   const NewPasswordScreen({Key? key}) : super(key: key);
@@ -41,11 +42,24 @@ class NewPasswordScreen extends StatelessWidget {
                 height: 20,
               ),
               defaultFormField(
+                obscureText: true,
+                prefixIcon:Icon(Icons.lock,
+                  color: AppColors.kPrimaryColor,),
+                  suffixIcon:Icon(Icons.visibility_off_outlined,
+                    color: AppColors.kPrimaryColor,),
+                  labelText:('Password'),
                   type:TextInputType.text,
                   controller:passwordController,
                   hintText: 'New Password'),
               SizedBox(height: 10,),
               defaultFormField(
+                  obscureText: true,
+                  prefixIcon:Icon(Icons.lock,
+                    color: AppColors.kPrimaryColor,),
+                  suffixIcon:Icon(Icons.visibility_off_outlined,
+                    color: AppColors.kPrimaryColor,),
+                  labelText:('Confirm Password'),
+
                   type:TextInputType.text,
                   controller:passwordController,
                   hintText: 'Confirm Password'),

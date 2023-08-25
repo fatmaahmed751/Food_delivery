@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
 
@@ -33,6 +34,11 @@ class ResetPassword extends StatelessWidget {
               ),
             ),
             defaultFormField(
+              obscureText: false,
+               prefixIcon:Icon(Icons.email_outlined,
+                  color: AppColors.kPrimaryColor,),
+                labelText: ('Your Email'),
+
                 type:TextInputType.text,
                 controller:emailController,
                 hintText: 'Your email'),

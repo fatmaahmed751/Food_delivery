@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 import 'package:restaurant_app/screens/about_us_screen.dart';
 import 'package:restaurant_app/screens/inbox_screen.dart';
 import 'package:restaurant_app/screens/my_order_screen.dart';

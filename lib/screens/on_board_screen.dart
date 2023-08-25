@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/components/components.dart';
+import 'package:restaurant_app/shared/components/components.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class OnBoardingModel{
   final String image;
