@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant_app/screens/deserts_screen.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
 import 'package:restaurant_app/widgets/menu_category_item.dart';
+import 'package:restaurant_app/widgets/menu_category_view.dart';
 class MenuCategoriesSection extends StatelessWidget {
   const MenuCategoriesSection({Key? key}) : super(key: key);
 
@@ -12,25 +15,34 @@ class MenuCategoriesSection extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           child: Container(
             width: 90.w,
-            height: 410.h,
+            height: 430.h,
             decoration: BoxDecoration(
-               // color: AppColors.primaryColor,
+                color: AppColors.kPrimaryColor,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(40),
                     bottomRight: Radius.circular(40))),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
           child: Column(
               children: [
-                MenuCategoryItem(title: 'Food',subTitle: '120 items',),
-                SizedBox(height: 20.h,),
-                MenuCategoryItem(title: 'Beverages',subTitle: '120 items',),
-                SizedBox(height: 20.h,),
-                MenuCategoryItem(title: 'Desserts',subTitle: '120 items',),
-                SizedBox(height: 20.h,),
-                MenuCategoryItem(title: 'Promotions',subTitle: '120 items',),
+                InkWell(
+                  onTap:(){
+                    Navigator.push(context,MaterialPageRoute(builder:(context)=>MenuCategoryView()));
+                  },
+                  child: MenuCategoryItem(title: 'Food',subTitle: '120 items',
+                  image:('assets/images/food.png')),
+                ),
+              //  SizedBox(height: 10.h,),
+                MenuCategoryItem(title: 'Beverages',subTitle: '120 items',
+                    image:('assets/images/beverages.png')),
+               // SizedBox(height: 10.h,),
+                MenuCategoryItem(title: 'Desserts',subTitle: '120 items',
+                    image:('assets/images/deserts.png')),
+                //SizedBox(height: 10.h,),
+                MenuCategoryItem(title: 'Promotions',subTitle: '120 items',
+                    image:('assets/images/promotions.png')),
 
               ]),
         )

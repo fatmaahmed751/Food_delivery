@@ -8,24 +8,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-       // appBar:AppBar(
-       //   elevation: 0.0,
-       //   backgroundColor: Colors.white,
-       //   title: Text('',
-       //     textAlign: TextAlign.left,
-       //     style: TextStyle(
-       //         fontSize: 18,
-       //         color: Color(0xff4A4B4D),
-       //         fontWeight: FontWeight.w400,
-       //         fontFamily: 'Metropolis'
-       //     ), ),
-       //   actions: [
-       //     IconButton(
-       //         iconSize: 22,
-       //         onPressed: (){},
-       //         icon:Image(image:AssetImage('assets/images/cart.png') ,)),
-       //   ],
-       // ),
+
         backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),

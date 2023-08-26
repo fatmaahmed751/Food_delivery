@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:restaurant_app/shared/components/app_colors.dart';
 import 'package:restaurant_app/shared/components/app_fonts.dart';
 import 'package:restaurant_app/widgets/custom_text.dart';
 
 class MenuCategoryItem extends StatelessWidget {
-  const MenuCategoryItem(
-      {Key? key, required this.title, required this.subTitle})
+   MenuCategoryItem(
+      {Key? key, required this.title,required this.image, required this.subTitle})
       : super(key: key);
   final String title;
   final String subTitle;
+  final String image;
+  void Function()? function;
+
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-       // Navigator.pushNamed(context, AppRouts.menuCategoryScreen);
-      },
+      onTap:function,
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 30,),
             child: Container(
-              width: 270.w,
+              width: 280.w,
               height: 70.h,
               decoration: BoxDecoration(
-               // color: AppColors.whiteColor,
+                color: AppColors.whiteColor,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30),
                   bottomLeft: Radius.circular(30),
@@ -63,16 +65,27 @@ class MenuCategoryItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircleAvatar(
-               // backgroundImage: AssetImage(food),
-                radius: 40,
+              // CircleAvatar(
+              //   //child: Image(image:AssetImage(image)),
+              //   backgroundImage:AssetImage(image),
+              //   radius: 40,
+              // ),
+
+              Container(
+                width: 90.w,
+                height: 100.h,
+               // color: Colors.red,
+                child: Expanded(
+                  child: Image(image:AssetImage(image),),
+                ),
               ),
+              //SizedBox(width: 40,),
               Container(
                   width: 30.w,
                   height: 30.h,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                   // color: AppColors.whiteColor,
+                    color: AppColors.whiteColor,
                     boxShadow: const [
                       BoxShadow(
                         color:  Color(0x29000000),
@@ -85,8 +98,9 @@ class MenuCategoryItem extends StatelessWidget {
                   child: Icon(
                     Icons.arrow_forward_ios,
                     size: 20,
-                  //  color: AppColors.primaryColor,
-                  ))
+                    color: AppColors.kPrimaryColor,
+                  )),
+
             ],
           )
         ],

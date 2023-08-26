@@ -15,6 +15,7 @@ import 'package:restaurant_app/widgets/menu_categories_section.dart';
 import 'screens/home_screen.dart';
 import 'screens/layout_screen.dart';
 import 'screens/register_screen.dart';
+import 'widgets/menu_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
       return MaterialApp(
           useInheritedMediaQuery: true,
-      home: LoginScreen(),
+      home: LayoutScreen(),
       // initialRoute: AppRouts.initialRoute,
       debugShowCheckedModeBanner: false,
 //routes: routes,

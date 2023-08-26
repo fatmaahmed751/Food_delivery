@@ -189,49 +189,52 @@ Widget defaultFormField({
 
 
 }) =>
-    Container(
-      width: 300,
-      height: 52,
-      // padding: EdgeInsets.all(8),
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-           borderRadius: BorderRadius.circular(200),
-      //  color: Colors.blueGrey[50]
-      ),
-      child: TextFormField(
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+      child: Container(
+        width: 300,
+        height: 70,
+        // padding: EdgeInsets.all(8),
+
+        decoration: BoxDecoration(
+             borderRadius: BorderRadius.circular(200),
+        //  color: Colors.blueGrey[50]
+        ),
+        child: TextFormField(
 obscureText: obscureText,
-        onChanged: onChanged,
-        textAlign: TextAlign.justify,
-        validator: validator,
-        keyboardType: type,
-        controller: controller,
-        decoration: InputDecoration(
-          prefixIcon:prefixIcon ,
-          suffixIcon: suffixIcon,
-          fillColor: Colors.blueGrey[50] ,
-          filled: true,
-          border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.deepOrangeAccent.withOpacity(1.0)),
-            borderRadius: BorderRadius.circular(101),
-          ),
-      enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+          onChanged: onChanged,
+          textAlign: TextAlign.justify,
+          validator: validator,
+          keyboardType: type,
+          controller: controller,
+          decoration: InputDecoration(
+            prefixIcon:prefixIcon ,
+            suffixIcon: suffixIcon,
+            fillColor: Colors.blueGrey[50] ,
+            filled: true,
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
                 color: Colors.deepOrangeAccent.withOpacity(1.0)),
-                borderRadius: BorderRadius.circular(201),
-          ),
-         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: Colors.deepOrangeAccent.withOpacity(1.0)),
-            borderRadius: BorderRadius.circular(201),
-          ),
-          labelText: labelText,
+              borderRadius: BorderRadius.circular(101),
+            ),
+        enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.deepOrangeAccent.withOpacity(1.0)),
+                  borderRadius: BorderRadius.circular(201),
+            ),
+           focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.deepOrangeAccent.withOpacity(1.0)),
+              borderRadius: BorderRadius.circular(201),
+            ),
+            labelText: labelText,
 labelStyle: TextStyle(
   color:Colors.grey[700],
 ),
 
-          contentPadding: EdgeInsets.only(left: 25),
+            contentPadding: EdgeInsets.only(left: 25),
 
+          ),
         ),
       ),
     );

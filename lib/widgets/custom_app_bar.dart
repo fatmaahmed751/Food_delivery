@@ -6,6 +6,7 @@ import 'package:restaurant_app/widgets/custom_text.dart';
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key, required this.title}) : super(key: key);
   final String title;
+ // Widget? icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,9 +15,10 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          IconButton(onPressed: (){
-            Navigator.pop(context);
-          }, icon:const Icon(Icons.arrow_back_ios)),
+         const SizedBox(width: 30,),
+          // IconButton(onPressed: (){
+          //   Navigator.pop(context);
+          // }, icon:const Icon(Icons.arrow_back_ios)),
           CustomText(
             text: title,
             size: AppFontSize.s20,

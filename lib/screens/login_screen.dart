@@ -10,17 +10,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'register_screen.dart';
 
-//ignore: must_be_immutable
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
-  GlobalKey<FormState> formKey = GlobalKey();
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   UserLoginModel? model;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
+
     return BlocProvider(
+
       create: (context) => AppLoginCubit(),
       child: BlocConsumer<AppLoginCubit, LoginStates>(
           listener: (context, state) {},
@@ -65,9 +71,9 @@ class LoginScreen extends StatelessWidget {
                           type: TextInputType.text,
                           controller: emailController,
                           hintText: 'Your email',
-                          onChanged: (data) {
-                            emailController.text = data;
-                          },
+                          // onChanged: (data) {
+                          //   emailController.text = data;
+                          // },
                           validator: (value) {
                             if (value!.isEmpty) {
                               return "Email is required";
@@ -90,11 +96,11 @@ class LoginScreen extends StatelessWidget {
                           controller: passwordController,
                           hintText: 'Password',
                           onChanged: (data) {
-                            passwordController.text = data;
+                            // passwordController.text = data;
                           },
                           validator: (value) {
-                            passwordController.text = value!;
-                            if (value.length < 6) {
+                            // passwordController.text = value!;
+                            if (value!.length < 6) {
                               return "password is too short";
                             }
                             return null;
@@ -108,12 +114,15 @@ class LoginScreen extends StatelessWidget {
                             text: 'Login',
                             function: () {
                               if (formKey.currentState!.validate()) {
-                                cubit.firebaseAuthenticate(model!);
+                                model=UserLoginModel(email:emailController.text
+                                    , password: passwordController.text);
+                                cubit.firebaseAuthenticate(context,model!);
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const LayoutScreen()));
+                                        const LayoutScreen()));
+
                               }
                             },
                           ),
@@ -181,8 +190,9 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
+
               ),
+              )
             );
           }),
     );

@@ -18,14 +18,15 @@ class AppRegisterCubit extends Cubit<RegisterStates>{
   FirebaseAuth auth = FirebaseAuth.instance;
 
 
-Future<UserRegisterModel> firebaseAuthenticate(UserRegisterModel model
+Future<UserRegisterModel> firebaseAuthenticate(UserRegisterModel registerModel
 )async{
   try {
- final response=  await auth.signInWithEmailAndPassword(
-          email: model.email,
-          password: model.password
+ final response=  await auth.createUserWithEmailAndPassword(
+          email: registerModel.email,
+          password: registerModel.password
         //print('jjjjjjjjjjjj');
       );
+ emit(AppRegisterSuccessState());
       print(auth.currentUser!.email);
       print(auth.currentUser!.uid);
         print('jjjjjjjjjjjj');
@@ -37,9 +38,10 @@ Future<UserRegisterModel> firebaseAuthenticate(UserRegisterModel model
     }
   } catch (e) {
     print('kkkkkkkkkkkkkkkkkkk');
-    print(e);
+    print(e.toString());
+    emit(AppRegisterErrorState());
   }
-  return model;
+  return registerModel;
 }
 
 

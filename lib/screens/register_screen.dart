@@ -11,17 +11,31 @@ import 'package:restaurant_app/models/user_login_model.dart';
 import 'package:restaurant_app/screens/layout_screen.dart';
 import 'package:restaurant_app/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-//ignore: must_be_immutable
-class SignUpScreen extends StatelessWidget {
-    SignUpScreen({Key? key}) : super(key: key);
+
+class SignUpScreen extends StatefulWidget {
+   const SignUpScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   GlobalKey<FormState>  formKey=GlobalKey();
+
   FirebaseAuth auth = FirebaseAuth.instance;
-late UserRegisterModel registerModel;
+
+ UserRegisterModel? registerModel;
+
     TextEditingController nameController=TextEditingController();
+
     TextEditingController emailController=TextEditingController();
+
     TextEditingController phoneController=TextEditingController();
+
     TextEditingController addressController=TextEditingController();
+
     TextEditingController passwordController=TextEditingController();
+
     TextEditingController confirmPasswordController=TextEditingController();
 
   @override
@@ -38,7 +52,7 @@ late UserRegisterModel registerModel;
                 child: Scaffold(
                   body: SingleChildScrollView(
                     child: Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Form(
                         // من خلال ال كى اقدر اكسسز البياانات اللي جوه الفورم اقدر اعرف هي سليمه ولا مش سليمه
                         key: formKey,
@@ -88,9 +102,10 @@ late UserRegisterModel registerModel;
                                 type:TextInputType.text,
                                 controller:emailController,
                                 hintText: 'Email',
-                                onChanged: (data){
-                                  emailController.text = data;
-                                }),
+                                // onChanged: (data){
+                                //   emailController.text = data;
+                                // }
+                               ),
 
                             defaultFormField(
 
@@ -122,9 +137,8 @@ late UserRegisterModel registerModel;
                                 type:TextInputType.text,
                                 controller:passwordController,
                                 hintText: 'Password',
-                                onChanged: (data){
-                                  passwordController.text =  data ;
-                                }),
+
+                                ),
 
                             defaultFormField(
                               obscureText: true,
@@ -143,7 +157,11 @@ late UserRegisterModel registerModel;
                               child: orangeButton(
                                   text: 'Sign Up', function:()async {
                                 if (formKey.currentState!.validate()) {
-                                  cubit.firebaseAuthenticate(registerModel);
+                                  registerModel=UserRegisterModel(
+                                    email:emailController.text,
+                                    password: passwordController.text
+                                  );
+                                  cubit.firebaseAuthenticate(registerModel!);
                                   Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>LayoutScreen()));
                                 }else{
                                   print('not valide');
@@ -187,24 +205,5 @@ late UserRegisterModel registerModel;
             }
         ));
   }
-
-  // Future<void> firebaseAuthenticate(UserRegisterModel registerModel) async {
-  //   try {
-  //      await auth.createUserWithEmailAndPassword(
-  //         email: registerModel.email,
-  //         password: registerModel.password
-  //       //print('jjjjjjjjjjjj');
-  //     );
-  //     print('jjjjjjjjjjjj');
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'weak-password') {
-  //       print('The password provided is too weak.');
-  //     } else if (e.code == 'email-already-in-use') {
-  //       print('The account already exists for that email.');
-  //     }
-  //   } catch (e) {
-  //     print('kkkkkkkkkkkkkkkkkkk');
-  //     print(e);
-  //   }
-  }
+}
 
