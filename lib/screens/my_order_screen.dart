@@ -20,31 +20,31 @@ class MyOrderScreen extends StatelessWidget {
             // width: 254,
             height: 100,
             padding: const EdgeInsets.only(left: 21),
-            child: Row(
+            child: const Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                const Image(
+                Image(
                   image: AssetImage(
                     'assets/images/order.png',
                   ),
                   height: 95,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'King Burgers',
                         style:
                             TextStyle(color: Color(0xff4A4B4D), fontSize: 16),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 5,
                       ),
                       Row(
-                        children: const [
+                        children: [
                           Icon(
                             Icons.star,
                             color: Colors.deepOrange,
@@ -65,11 +65,11 @@ class MyOrderScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 5,
                       ),
                       Row(
-                        children: const [
+                        children: [
                           Text(
                             'Burger',
                             style: TextStyle(
@@ -85,11 +85,11 @@ class MyOrderScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 5,
                       ),
                       Row(
-                        children: const [
+                        children: [
                           Icon(
                             Icons.add_location_alt_rounded,
                             color: Colors.deepOrange,
@@ -111,15 +111,15 @@ class MyOrderScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
          Expanded(
            child: ListView.separated(itemBuilder:(context,index)=>ingredientsOrder(),
            itemCount: 5,
            separatorBuilder: (context,index)=>Container(
-             decoration: BoxDecoration(
+             decoration: const BoxDecoration(
                color:  Color(0xffF6F6F6)
              ),
-             child: Divider(
+             child: const Divider(
                thickness: 1,
                indent: 20,
                endIndent: 20,
@@ -129,7 +129,7 @@ class MyOrderScreen extends StatelessWidget {
           Expanded(
           child: ListView.separated(itemBuilder:(context,index)=>costOrder(),
             itemCount: 5,
-            separatorBuilder: (context,index)=>Divider(
+            separatorBuilder: (context,index)=>const Divider(
               thickness: 1,
               indent: 20,
               endIndent: 20,
@@ -143,11 +143,11 @@ class MyOrderScreen extends StatelessWidget {
   }
   Widget ingredientsOrder(){
     return Container(
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(20),
+      decoration: const BoxDecoration(
           color: Color(0xffF6F6F6)
       ),
-      child: Row(
+      child: const Row(
         children: [
           Text('Beef Burger x1',
             style: TextStyle(
@@ -171,7 +171,7 @@ class MyOrderScreen extends StatelessWidget {
       right: 20),
       child: Container(
         height: 22,
-        child: Row(
+        child: const Row(
           children: [
             Text('Delivery Instrusctions',
               style: TextStyle(

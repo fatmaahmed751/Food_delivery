@@ -10,13 +10,7 @@ class AppRegisterCubit extends Cubit<RegisterStates>{
 
   static AppRegisterCubit get(context)=>BlocProvider.of(context);
 
-
- // UserRegisterModel model = UserRegisterModel(
- //   email:'' ,
- //   password: '',
- // );
   FirebaseAuth auth = FirebaseAuth.instance;
-
 
 Future<UserRegisterModel> firebaseAuthenticate(UserRegisterModel registerModel
 )async{

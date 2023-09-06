@@ -11,11 +11,11 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(top: 50.h, bottom: 10.h, right: 20.w),
+          EdgeInsets.only(top: 30.h, bottom: 10.h, right: 20.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-         const SizedBox(width: 30,),
+         const SizedBox(width: 15,),
           // IconButton(onPressed: (){
           //   Navigator.pop(context);
           // }, icon:const Icon(Icons.arrow_back_ios)),

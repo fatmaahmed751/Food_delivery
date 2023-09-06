@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant_app/screens/deserts_screen.dart';
+import 'package:restaurant_app/screens/desserts_screen.dart';
 import 'package:restaurant_app/shared/components/app_colors.dart';
 import 'package:restaurant_app/widgets/menu_category_item.dart';
 import 'package:restaurant_app/widgets/menu_category_view.dart';
@@ -29,17 +29,19 @@ class MenuCategoriesSection extends StatelessWidget {
               children: [
                 InkWell(
                   onTap:(){
-                    Navigator.push(context,MaterialPageRoute(builder:(context)=>MenuCategoryView()));
+                    Navigator.push(context,MaterialPageRoute(builder:(context)=>const DessertsScreen()));
                   },
-                  child: MenuCategoryItem(title: 'Food',subTitle: '120 items',
-                  image:('assets/images/food.png')),
+                  child: MenuCategoryItem(title:'Desserts' ,subTitle: '120 items',
+                  image:('assets/images/desserts.png')),
                 ),
               //  SizedBox(height: 10.h,),
-                MenuCategoryItem(title: 'Beverages',subTitle: '120 items',
-                    image:('assets/images/beverages.png')),
+                InkWell(
+                  child: MenuCategoryItem(title: 'Beverages',subTitle: '120 items',
+                      image:('assets/images/beverages.png')),
+                ),
                // SizedBox(height: 10.h,),
-                MenuCategoryItem(title: 'Desserts',subTitle: '120 items',
-                    image:('assets/images/deserts.png')),
+                MenuCategoryItem(title: 'Food',subTitle: '120 items',
+                    image:('assets/images/food.png')),
                 //SizedBox(height: 10.h,),
                 MenuCategoryItem(title: 'Promotions',subTitle: '120 items',
                     image:('assets/images/promotions.png')),

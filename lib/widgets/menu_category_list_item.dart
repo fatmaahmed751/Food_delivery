@@ -14,7 +14,7 @@ class MenuCategoryListItem extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       decoration: BoxDecoration(
         // color: Colors.white,
-       // image: DecorationImage(image: AssetImage(dessert), fit: BoxFit.cover),
+      //  image: DecorationImage(image: AssetImage(dessert), fit: BoxFit.cover),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -29,28 +29,7 @@ class MenuCategoryListItem extends StatelessWidget {
               fontWeight: AppFontWeight.bold,
             ),
             //
-            Row(
-              children: [
-                Icon(
-                  Icons.star,
-                  size: 14,
-                 // color: AppColors.primaryColor,
-                ),
-                CustomText(
-                  text: '4.9',
-                //  color: AppColors.primaryColor,
-                  size: AppFontSize.s12,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                CustomText(
-                  text: 'Minute by tuk tuk',
-                //  color: AppColors.whiteColor,
-                  size: AppFontSize.s12,
-                ),
-              ],
-            ),
+
           ],
         ),
       ),
